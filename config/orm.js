@@ -1,4 +1,7 @@
+//Import mySQL
 const connection = require("./connection");
+
+//Object for all SQL methods
 const orm = {
 
     selectAll: function(table, callback) {

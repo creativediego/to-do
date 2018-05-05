@@ -1,12 +1,23 @@
 const express = require("express");
-const orm = require("./config/orm");
-
-
 const app = express();
 
+//Import routes
+const router = require("./controllers/to_do_controller");
+app.use(router);
 
-orm.updateOne("tasks", 1, function(data) {
+const bodyParser = require("body-parser");
 
-    console.log(data);
+//parse form data from user (application/x-www-form-urlencoded)
+app.use(bodyParser.urlencoded({ extended: true }));
+
+//parse app JSON
+app.use(bodyParser.json());
+
+//Port settings
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, function() {
+
+    console.log("listening on port" + PORT);
 
 })

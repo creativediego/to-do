@@ -1,11 +1,13 @@
+//Import SQL methods
 const orm = require("../config/orm");
 
+//Object for database methods to be used in routes/router
 const task = {
 
     allCompleted: function(cb) {
         orm.selectAllComplete("tasks", function(result) {
 
-            cd(result);
+            cb(result);
 
         });
     },
@@ -14,7 +16,7 @@ const task = {
 
         orm.selectAllIncomplete("tasks", function(result) {
 
-            cd(result);
+            cb(result);
 
         });
 
