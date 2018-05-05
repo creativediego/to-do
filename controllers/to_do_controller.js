@@ -37,8 +37,8 @@ router.post("/", function(req, res) {
 router.put("/", function(req, res) {
     let id = req.body.id
     task.delete(id, function(data) {
-
-        res.redirect(303, '/');
+        res.mothod("GET");
+        res.redirect("/");
 
     })
 
