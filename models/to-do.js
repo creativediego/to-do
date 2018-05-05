@@ -3,6 +3,13 @@ const orm = require("../config/orm");
 
 //Object for database methods to be used in routes/router
 const task = {
+    allTasks: function(cb) {
+        orm.selectAll("tasks", function(result) {
+
+            cb(result);
+
+        });
+    },
 
     allCompleted: function(cb) {
         orm.selectAllComplete("tasks", function(result) {
@@ -24,7 +31,7 @@ const task = {
 
     create: function(task, cb) {
 
-        orm.insertOne("tasks", task, function(resut) {
+        orm.insertOne("tasks", task, function(result) {
 
             cb(result);
         })
@@ -42,7 +49,7 @@ const task = {
 
     delete: function(id, cb) {
 
-        orm.deleteOne("tasks", id, function(resut) {
+        orm.deleteOne("tasks", id, function(result) {
 
             cb(result);
         })

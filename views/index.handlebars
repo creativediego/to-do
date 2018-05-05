@@ -1,0 +1,20 @@
+<header class="jumbotron">
+   <h1>To-do App</h1>
+   <p class="lead">Remeber the important things, and get stuff done. </p> 
+</header>
+<main class="container">
+   <ul>
+       {{#each tasks}}
+
+<div completed={{completed}} id={{id}}><p>{{task}} <button  id="{{id}}" class="btn btn-success complete">Complete</button></p></div>
+
+       {{/each}}
+   <ul>
+<form action="/" method="POST">
+       <div class="form-group">
+    <label>Enter a Task</label>
+    <textarea class="form-control" name="task" rows="3"></textarea>
+    <button type="submit" class="btn btn-info" id="create-task">CREATE</button>
+  </div>
+</form>
+</main>
